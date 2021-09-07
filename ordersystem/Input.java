@@ -2,30 +2,42 @@ package ordersystem;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Input {
 
 	static OrderProcessor orderProcessor = new OrderProcessor();
 
 	public static void main(String args[]) throws IOException {
-
+		
+		Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter the customer name:");
 		String name = sc.nextLine();
+		Matcher matcherName = pattern.matcher(name);
+		boolean isStringContainsSpecialCharacterinName = matcherName.find();
 		if (name == null) {
 			throw new IOException("Invalid customer name.");
 		} else if (name.isEmpty()) {
+			throw new IOException("Invalid customer name.");
+		} else if (isStringContainsSpecialCharacterinName) {
 			throw new IOException("Invalid customer name.");
 		}
 
 		System.out.println("Enter the customer address:");
 		String address = sc.nextLine();
+		Matcher matcherAddress = pattern.matcher(address);
+		boolean isStringContainsSpecialCharacterinAddress = matcherAddress.find();
 		if (address == null) {
 			throw new IOException("Invalid Address.");
 		} else if (address.isEmpty()) {
 			throw new IOException("Invalid Address.");
+		} else if (isStringContainsSpecialCharacterinAddress) {
+			throw new IOException("Invalid customer Address.");
 		}
+
 		System.out.println("Enter the customer phone:");
 		int phone = sc.nextInt();
 		sc.nextLine();
@@ -43,6 +55,8 @@ public class Input {
 		} else if (email.isEmpty()) {
 			throw new IOException("Invalid Email.");
 		}
+		
+		
 
 		CustomerDetails customerDetails = new CustomerDetails(name, address, phone, email);
 
@@ -60,9 +74,14 @@ public class Input {
 			if (input.equals("1")) {
 				System.out.println("Enter item name ");
 				String itemName = sc.next();
+
+				Matcher matcher = pattern.matcher(itemName);
+				boolean isStringContainsSpecialCharacter = matcher.find();
 				if (itemName == null) {
 					throw new IOException("Invalid itemName.");
 				} else if (itemName.isEmpty()) {
+					throw new IOException("Invalid itemName.");
+				} else if (isStringContainsSpecialCharacter) {
 					throw new IOException("Invalid itemName.");
 				}
 
@@ -85,10 +104,9 @@ public class Input {
 					System.out.println("Input is not a valid integer" + e);
 				}
 
-				Random orderid = new Random();
-				int orderId = orderid.nextInt(100) + 1;
+				int orderid = OrderIdGenerator.orderID();
 
-				Order order = new Order(orderId, itemName, priority, amount);
+				Order order = new Order(orderid, itemName, priority, amount);
 
 				orderqueue.addOrder(order);
 				if (orderqueue == null) {

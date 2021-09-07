@@ -9,7 +9,6 @@ public class Order {
 	private int priority;
 	private double amount;
 
-	// Order constructor
 	public Order(int orderId, String itemName, int priority, double amount) {
 		this.orderId = orderId;
 		this.itemName = itemName;
@@ -36,7 +35,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		String orderDetails = String.format("orderID=%d; itemName =%s; priority =%d;  amount =%d;", orderId, itemName,
+		String orderDetails = String.format("orderID=%d; itemName =%s; priority =%d;  amount =%f;", orderId, itemName,
 				priority, amount);
 		return orderDetails;
 	}

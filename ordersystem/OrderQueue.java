@@ -9,10 +9,10 @@ public class OrderQueue {
 
 	class OrderComparator implements Comparator<Order> {
 
-		public int compare(Order s1, Order s2) {
-			if (s1.getPriority() > s2.getPriority())
+		public int compare(Order orderA, Order orderB) {
+			if (orderA.getPriority() > orderB.getPriority())
 				return 1;
-			else if (s1.getPriority() < s2.getPriority())
+			else if (orderA.getPriority() < orderB.getPriority())
 				return -1;
 			return 0;
 		}
