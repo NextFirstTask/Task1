@@ -7,23 +7,20 @@ import java.util.regex.Pattern;
 
 public class Input {
 
+
 	static OrderProcessor orderProcessor = new OrderProcessor();
 
 	public static void main(String args[]) throws IOException {
 
-		Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
+		Pattern pattern = Pattern.compile("^(\\d|\\w)+$");
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter the customer name:");
 		String name = sc.nextLine();
 		Matcher matcherName = pattern.matcher(name);
-		
+
 		boolean validNameCheck = matcherName.find();
-		if (name == null) {
-			throw new IOException("Invalid Address.");
-		} else if (name.isEmpty()) {
-			throw new IOException("Invalid Address.");
-		}else if (validNameCheck) {
+		if (validNameCheck) {
 			throw new IOException("Invalid customer name.");
 		}
 
@@ -51,10 +48,10 @@ public class Input {
 
 		System.out.println("Enter the customer email:");
 		String email = sc.nextLine();
-		final Pattern validEmailAddress = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+		final Pattern validEmailAddress = Pattern.compile("^(.+)@(.+)$");
 		Matcher matcherEmail = validEmailAddress.matcher(email);
 		boolean Valid_Email = matcherEmail.find();
-		  if (Valid_Email) {
+		if (!Valid_Email) {
 			throw new IOException("Invalid customer email.");
 		}
 
