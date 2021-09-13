@@ -1,4 +1,4 @@
-package Service;
+package OrderService;
 
 public class CustomerDetails {
 

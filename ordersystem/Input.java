@@ -5,20 +5,19 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import Service.CustomerDetails;
-import Service.Order;
-import Service.OrderIdGenerator;
-import Service.OrderProcessor;
-import Service.OrderProcessorService;
-import Service.OrderQueue;
-import Service.OrderService;
+import OrderService.CustomerDetails;
+import OrderService.Order;
+import OrderService.OrderIdGenerator;
+import OrderService.OrderProcessor;
+import OrderService.OrderProcessorService;
+import OrderService.OrderQueue;
+import OrderService.OrderService;
 
 public class Input {
 
-	static OrderProcessorService orderProcessor = new OrderProcessor();
-
 	public static void main(String args[]) {
 		try {
+			OrderProcessorService orderProcessor = new OrderProcessor();
 			Pattern pattern = Pattern.compile("^[a-zA-Z]$");
 			Scanner sc = new Scanner(System.in);
 

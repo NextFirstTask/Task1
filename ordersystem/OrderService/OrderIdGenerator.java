@@ -1,4 +1,4 @@
-package Service;
+package OrderService;
 
 import java.util.Random;
 
