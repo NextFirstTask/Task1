@@ -1,32 +1,37 @@
-package junit;
+package Junit;
 
 import org.junit.jupiter.api.Test;
 
-import ordersystem.Order;
-import ordersystem.OrderQueue;
+import Service.Order;
+import Service.OrderQueue;
 
 class OrderQueueTest {
 
-	private Order order;
+	@Test
+	void testOrderQueue() {
+		var OrderQueue = new OrderQueue(null);
+		OrderQueue.getTopOrder();
+	}
+
+	Order order = new Order("ball", 1, 1);
 
 	@Test
-	void Add_Order_To_Queue() {
-		OrderQueue orderqueue= new OrderQueue();
+	void testAddOrder() {
+
+		OrderQueue orderqueue = new OrderQueue(null);
 		orderqueue.addOrder(order);
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
-	void check_Cart_Size() {
-		OrderQueue orderqueue= new OrderQueue();
-		equals(orderqueue.size()==1);
-		System.out.println("cart is not empty");
-		equals(orderqueue.size()==0);
-		System.out.println("cart is empty");
+	void testSize() {
+		OrderQueue orderqueue = new OrderQueue(null);
+		equals(orderqueue.size() == 1);
 	}
 
 	@Test
-	void Get_Top_Order_of_Queue() {
-		var OrderQueue= new OrderQueue();
+	void testGetTopOrder() {
+		var OrderQueue = new OrderQueue(null);
 		OrderQueue.getTopOrder();
 	}
 

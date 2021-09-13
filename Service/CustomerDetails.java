@@ -1,13 +1,13 @@
-package ordersystem;
+package Service;
 
 public class CustomerDetails {
 
 	private String name;
 	private String address;
-	private int phone;
+	private String phone;
 	private String email;
 
-	public CustomerDetails(String name, String address, int phone, String email) {
+	public CustomerDetails(String name, String address, String phone, String email) {
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
@@ -22,7 +22,7 @@ public class CustomerDetails {
 		return address;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
@@ -32,7 +32,7 @@ public class CustomerDetails {
 
 	public String processCustomerDetails() {
 		String customerDetails = String.format(
-				"customer name=%s; customer address =%s; customer phone =%d; customer email =%s;", name, address, phone,
+				"customer name=%s; customer address =%s; customer phone =%s; customer email =%s;", name, address, phone,
 				email);
 		return customerDetails;
 	}

@@ -1,6 +1,4 @@
-package ordersystem;
-
-import java.util.*;
+package Service;
 
 public class Order {
 

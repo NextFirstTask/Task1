@@ -1,17 +1,20 @@
-package junit;
+package Junit;
+
 import org.junit.jupiter.api.Test;
 
-import ordersystem.OrderProcessor;
-import ordersystem.OrderQueue;
+import Service.OrderProcessor;
+import Service.OrderQueue;
 
 class InputTest {
-	
+
 	OrderProcessor Orderprocessor = new OrderProcessor();
-	
+
 	@Test
-	void Check_Main() {
-		var OrderQueue= new OrderQueue();
+	void testMain() {
+
+		var OrderQueue = new OrderQueue(Orderprocessor);
 		OrderQueue.getTopOrder();
+
 	}
 
 }

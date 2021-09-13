@@ -1,22 +1,17 @@
-package junit;
+package Junit;
 
 import org.junit.jupiter.api.Test;
 
-import ordersystem.CustomerDetails;
+import Service.CustomerDetails;
 
 class CustomerDetailsTest {
 
-	private String name;
-	private String address;
-	private int phone;
-	private String email;
-
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
-	void should_Create_Customer_Details() {
-		CustomerDetails customerdetails = new CustomerDetails(name="John", address="Banglore", phone=67543, email="john@gmail.com");
-		
+	void testProcessCustomerDetails() {
+		@SuppressWarnings("unused")
+		CustomerDetails customer = new CustomerDetails(null, null, null, null);
+		equals(CustomerDetails.processCustomerDetails == 1);
 	}
-
-	
 
 }

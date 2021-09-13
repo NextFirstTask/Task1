@@ -1,7 +1,10 @@
-package ordersystem;
+package Service;
 
-public class OrderProcessor {
-	public Order processOrder(OrderQueue orderqueue) {
+public class OrderProcessor implements OrderProcessorService {
+	
+
+	@Override
+	public Order processOrder(OrderService orderqueue) {
 		try {
 			return orderqueue.getTopOrder();
 

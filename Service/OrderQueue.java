@@ -1,9 +1,9 @@
-package ordersystem;
+package Service;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class OrderQueue {
+public class OrderQueue implements OrderService {
 
 	PriorityQueue<Order> orderQueue = new PriorityQueue<Order>(new OrderComparator());
 
@@ -17,7 +17,7 @@ public class OrderQueue {
 			return 0;
 		}
 	}
-
+   @Override
 	public void addOrder(Order order) {
 		try {
 			orderQueue.add(order);
@@ -25,7 +25,7 @@ public class OrderQueue {
 			queueIsEmpty.printStackTrace();
 		}
 	}
-
+    @Override
 	public int size() {
 		try {
 			return orderQueue.size();
@@ -34,7 +34,7 @@ public class OrderQueue {
 			return 0;
 		}
 	}
-
+    @Override
 	public Order getTopOrder() {
 		try {
 			return orderQueue.poll();
